@@ -1,15 +1,16 @@
 import {ModuleRegistry} from 'ag-grid-community';
-import type {Component} from 'solid-js';
-import {createEffect, createSignal} from "solid-js";
+import {Component, onMount} from 'solid-js';
+import {createSignal} from "solid-js";
 import AgGridSolid, {AgGridSolidRef} from 'ag-grid-solid';
 
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 import "./styles.css";
+import spinnerGif from './images/spinner.gif';
 
 export const MyRenderer = (props: any) => {
     return <span class="my-renderer">
-        <img src="https://d1yk6z6emsz7qy.cloudfront.net/static/images/loading.gif" class="my-spinner"/>
+        <img src={spinnerGif} class="my-spinner"/>
         <span class="my-renderer-value">{props.value}</span>
     </span>;
 }
@@ -20,7 +21,7 @@ const App: Component = () => {
 
     let gridRef: AgGridSolidRef;
 
-    createEffect(() => {
+    onMount(() => {
         fetch('https://www.ag-grid.com/example-assets/master-detail-data.json')
             .then(resp => resp.json())
             .then(data => {

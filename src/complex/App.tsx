@@ -2,7 +2,8 @@ import {GetDetailRowDataParams, GetRowIdParams, ICellRendererParams, ModuleRegis
 import type {Component} from 'solid-js';
 import {createSignal} from "solid-js";
 import AgGridSolid, {AgGridSolidRef} from 'ag-grid-solid';
-import 'ag-grid-enterprise';
+
+import "ag-grid-enterprise";
 
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
@@ -160,8 +161,6 @@ const FullApp: Component = () => {
                     rowGroupPanelShow='always'
                     rowData={getRowData()}
                     masterDetail={true}
-                    // isFullWidthRow: p => true,
-                    // fullWidthCellRenderer: JsEmptyComp,
                     animateRows={true}
                     ref={gridRef!}
                 />
