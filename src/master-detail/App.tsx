@@ -5,13 +5,13 @@ import AgGridSolid, {AgGridSolidRef} from 'ag-grid-solid';
 
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
-import "./styles.css";
+import styles from "./style.module.css"
 import spinnerGif from './images/spinner.gif';
 
-export const MyRenderer = (props: any) => {
-    return <span class="my-renderer">
-        <img src={spinnerGif} class="my-spinner"/>
-        <span class="my-renderer-value">{props.value}</span>
+const MyRenderer = (props: any) => {
+    return <span class={styles["my-renderer"]}>
+        <img src={spinnerGif} class={styles["my-spinner"]}/>
+        <span class={styles["my-renderer-value"]}>{props.value}</span>
     </span>;
 }
 

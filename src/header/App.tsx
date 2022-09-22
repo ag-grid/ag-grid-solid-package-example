@@ -5,7 +5,7 @@ import AgGridSolid, {AgGridSolidRef} from 'ag-grid-solid';
 
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
-import "./styles.css";
+import styles from "./style.module.css"
 import spinnerGif from './images/spinner.gif';
 
 const SortingHeader = (props:any) => {
@@ -33,8 +33,8 @@ const SortingHeader = (props:any) => {
     });
 
     return (
-        <span class="my-header" onClick={onClick}>
-            <img src={spinnerGif} class="my-spinner" />
+        <span class={styles["my-header"]} onClick={onClick}>
+            <img src={spinnerGif} class={styles["my-spinner"]} />
             {props.displayName} {sortState}
         </span>
     );
@@ -59,14 +59,14 @@ const MyGroupHeader = (props:any) => {
     });
 
     const showExpandJsx = () => (
-        <button onClick={onExpandClicked} class="my-expand">
+        <button onClick={onExpandClicked} class={styles["my-expand"]}>
              {getExpanded() ? '<' : '>'}
          </button>
      );
 
      return (
-         <span class="my-group-header">
-             <img src={spinnerGif} class="my-spinner" />
+         <span class={styles["my-group-header"]}>
+             <img src={spinnerGif} class={styles["my-spinner"]} />
              {props.displayName}
              {expandable && showExpandJsx()}
          </span>

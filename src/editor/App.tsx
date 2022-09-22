@@ -5,7 +5,7 @@ import AgGridSolid, {AgGridSolidRef} from 'ag-grid-solid';
 
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
-import "./styles.css";
+import styles from "./style.module.css"
 
 export const MySolidEditor = (props: ICellEditorParams) => {
     let value = props.value;
@@ -27,7 +27,7 @@ export const MySolidEditor = (props: ICellEditorParams) => {
 
 
     return (
-        <input type="number" class="my-editor"
+        <input type="number" class={styles["my-editor"]}
                ref={refInput}
                value={value}
                onChange={onValueChanged}

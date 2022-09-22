@@ -5,7 +5,7 @@ import AgGridSolid, {AgGridSolidRef} from 'ag-grid-solid';
 
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
-import "./styles.css";
+import styles from "./style.module.css"
 
 const MyToolPanel = (props:any) => {
 
@@ -20,11 +20,11 @@ const MyToolPanel = (props:any) => {
 
     (props as any).ref(api);
     return (
-        <div class='my-tool-panel'>
+        <div class={styles["my-tool-panel"]}>
             <div>
                 Sample Tool Panel
             </div>
-            <div class='my-tool-panel-value'>
+            <div class={styles["my-tool-panel-value"]}>
                 {value}
             </div>
         </div>
@@ -45,11 +45,11 @@ const MyStatusPanel = (props: any) => {
     (props as any).ref(api);
 
     return (
-        <div class='my-status-panel'>
+        <div class={styles["my-status-panel"]}>
             <span>
                 Sample Status Panel
             </span>
-            <span class='my-status-panel-value'>
+            <span class={styles["my-status-panel-value"]}>
                 {value()}
             </span>
         </div>
@@ -58,8 +58,8 @@ const MyStatusPanel = (props: any) => {
 
 const MyLoadingOverlay = () => {
     return (
-        <div class='my-loading-overlay'>
-            <img src="https://d1yk6z6emsz7qy.cloudfront.net/static/images/loading.gif" class="my-all-spinner"/>
+        <div class={styles["my-loading-overlay"]}>
+            <img src="https://d1yk6z6emsz7qy.cloudfront.net/static/images/loading.gif" class={styles["my-all-spinner"]} />
             Loading...
         </div>
     )
@@ -67,8 +67,8 @@ const MyLoadingOverlay = () => {
 
 const MyNoRowsOverlay = () => {
     return (
-        <div class='my-no-rows-overlay'>
-            <img src="https://d1yk6z6emsz7qy.cloudfront.net/static/images/loading.gif" class="my-all-spinner"/>
+        <div class={styles["my-no-rows-overlay"]}>
+            <img src="https://d1yk6z6emsz7qy.cloudfront.net/static/images/loading.gif" class={styles["my-all-spinner"]} />
             No Rows
         </div>
     )
@@ -76,7 +76,7 @@ const MyNoRowsOverlay = () => {
 
 const MyTooltip = (params: any) => {
     return (
-        <div class='my-tooltip'>
+        <div class={styles["my-tooltip"]}>
             My Tooltip: {params.value}
         </div>
     )
@@ -241,8 +241,8 @@ const App: Component = () => {
     const onBtHide = () => gridRef.api.hideOverlay();
 
     return (
-        <div class='top-level'>
-            <div class='buttons-bar'>
+        <div class={styles["top-level"]}>
+            <div class={styles["buttons-bar"]}>
                 <div>
                     <button onClick={onCallFilter}>Toggle Filter</button>
                     <button onClick={onCallToolPanel}>Increment Tool Panel</button>
@@ -254,7 +254,7 @@ const App: Component = () => {
                     <button onClick={onBtHide}>Hide Overlay</button>
                 </div>
             </div>
-            <div class="ag-theme-alpine my-grid">
+            <div class={`ag-theme-alpine ${styles["my-grid"]}`}>
                 <AgGridSolid
                     ref={gridRef!}
                     sideBar={sideBar}
