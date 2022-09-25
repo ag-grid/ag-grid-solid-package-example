@@ -1,6 +1,4 @@
-import {ModuleRegistry} from 'ag-grid-community';
-import {Component, onMount} from 'solid-js';
-import {createSignal} from "solid-js";
+import {Component, createResource, createSignal, onMount} from 'solid-js';
 import AgGridSolid, {AgGridSolidRef} from 'ag-grid-solid';
 
 import 'ag-grid-community/dist/styles/ag-grid.css';
@@ -15,26 +13,24 @@ const MyRenderer = (props: any) => {
     </span>;
 }
 
+const fetchData = async () =>
+    (await fetch(`https://www.ag-grid.com/example-assets/master-detail-data.json`)).json();
+
 const App: Component = () => {
 
-    const [getRowData, setRowData] = createSignal<any[]>([]);
+    const [rowData] = createResource<any[]>(fetchData);
 
     let gridRef: AgGridSolidRef;
 
     onMount(() => {
-        fetch('https://www.ag-grid.com/example-assets/master-detail-data.json')
-            .then(resp => resp.json())
-            .then(data => {
-                setRowData(data);
-                setTimeout(() => gridRef!.api!.getDisplayedRowAtIndex(1)!.setExpanded(true), 100);
-            });
+        setTimeout(() => gridRef!.api!.getDisplayedRowAtIndex(1)!.setExpanded(true), 200);
     })
 
     const columnDefs = [
-        { field: 'name', cellRenderer: 'agGroupCellRenderer' },
-        { field: 'account', cellRenderer: MyRenderer },
-        { field: 'calls' },
-        { field: 'minutes', valueFormatter: "x.toLocaleString() + 'm'" }
+        {field: 'name', cellRenderer: 'agGroupCellRenderer'},
+        {field: 'account', cellRenderer: MyRenderer},
+        {field: 'calls'},
+        {field: 'minutes', valueFormatter: "x.toLocaleString() + 'm'"}
     ];
 
     const defaultColDef = {
@@ -78,7 +74,7 @@ const App: Component = () => {
 
     const detailCellRendererParams = {
         detailGridOptions: detailGridOptions,
-        getDetailRowData: (params:any) => params.successCallback(params.data.callRecords)
+        getDetailRowData: (params: any) => params.successCallback(params.data.callRecords)
     }
 
     return (
@@ -89,7 +85,7 @@ const App: Component = () => {
                     defaultColDef={defaultColDef}
                     masterDetail={true}
                     detailCellRendererParams={detailCellRendererParams}
-                    rowData={getRowData()}
+                    rowData={rowData()}
                     ref={gridRef!}
                 />
             </div>

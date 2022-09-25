@@ -1,5 +1,5 @@
 import {IFilter, IFilterParams, IFloatingFilter, ModuleRegistry} from 'ag-grid-community';
-import {Component, onMount} from 'solid-js';
+import {Component, createResource, onMount} from 'solid-js';
 import {createEffect, createSignal} from "solid-js";
 import AgGridSolid, {AgGridSolidRef} from 'ag-grid-solid';
 
@@ -165,17 +165,14 @@ const YearFilter = (props: IFilterParams) => {
         </div>);
 }
 
+const fetchData = async () =>
+    (await fetch(`https://www.ag-grid.com/example-assets/olympic-winners.json`)).json();
+
 const App: Component = () => {
 
-    const [getRowData, setRowData] = createSignal<any[]>([]);
+    const [rowData] = createResource<any[]>(fetchData);
 
     let gridRef: AgGridSolidRef;
-
-    onMount(() => {
-        fetch('https://www.ag-grid.com/example-assets/olympic-winners.json')
-            .then(resp => resp.json())
-            .then(data => setRowData(data));
-    })
 
     const columnDefs = [
         {field: 'athlete', tooltipField: 'athlete'},
@@ -264,7 +261,7 @@ const App: Component = () => {
                     noRowsOverlayComponent={MyNoRowsOverlay}
                     columnDefs={columnDefs}
                     defaultColDef={defaultColDef}
-                    rowData={getRowData()}
+                    rowData={rowData()}
                 />
             </div>
         </div>

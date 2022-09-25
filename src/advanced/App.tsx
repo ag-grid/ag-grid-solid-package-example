@@ -1,4 +1,4 @@
-import {Component, onMount} from 'solid-js';
+import {Component, createResource, onMount} from 'solid-js';
 import {createEffect, createSignal} from "solid-js";
 import AgGridSolid, {AgGridSolidRef} from 'ag-grid-solid';
 
@@ -14,17 +14,14 @@ const MyRenderer = (props: any) => {
     </span>;
 }
 
+const fetchData = async () =>
+    (await fetch(`https://www.ag-grid.com/example-assets/olympic-winners.json`)).json();
+
 const App: Component = () => {
 
-    const [getRowData, setRowData] = createSignal<any[]>([]);
+    const [rowData] = createResource<any[]>(fetchData);
 
     let gridRef: AgGridSolidRef;
-
-    onMount(() => {
-        fetch('https://www.ag-grid.com/example-assets/olympic-winners.json')
-            .then(resp => resp.json())
-            .then(data => setRowData(data));
-    });
 
     // show chart of first rendering
     const onFirstDataRendered = ()=> {
@@ -72,7 +69,7 @@ const App: Component = () => {
                     rowGroupPanelShow="always"
                     enableRangeSelection={true}
                     enableCharts={true}
-                    rowData={getRowData()}
+                    rowData={rowData()}
                     rowSelection="multiple"
                     onFirstDataRendered={onFirstDataRendered}
                     groupSelectsChildren={true}
