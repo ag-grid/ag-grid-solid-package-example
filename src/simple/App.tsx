@@ -1,4 +1,3 @@
-import {ModuleRegistry} from 'ag-grid-community';
 import {Component, createResource, onMount} from 'solid-js';
 import {createSignal} from "solid-js";
 import AgGridSolid, {AgGridSolidRef} from 'ag-grid-solid';

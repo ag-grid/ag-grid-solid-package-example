@@ -1,4 +1,4 @@
-import {ICellEditorParams, ICellEditor, ModuleRegistry} from 'ag-grid-community';
+import {ICellEditorParams, ICellEditor} from 'ag-grid-community';
 import {Component, createResource, onMount} from 'solid-js';
 import {createEffect, createSignal} from "solid-js";
 import AgGridSolid, {AgGridSolidRef} from 'ag-grid-solid';

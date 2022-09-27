@@ -1,4 +1,4 @@
-import {GetDetailRowDataParams, GetRowIdParams, ICellRendererParams, ModuleRegistry} from 'ag-grid-community';
+import {GetDetailRowDataParams, GetRowIdParams, ICellRendererParams} from 'ag-grid-community';
 import type {Component} from 'solid-js';
 import {createSignal} from "solid-js";
 import AgGridSolid, {AgGridSolidRef} from 'ag-grid-solid';

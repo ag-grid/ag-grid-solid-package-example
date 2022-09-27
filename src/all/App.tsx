@@ -1,4 +1,4 @@
-import {IFilter, IFilterParams, IFloatingFilter, ModuleRegistry} from 'ag-grid-community';
+import {IFilter, IFilterParams, IFloatingFilter} from 'ag-grid-community';
 import {Component, createResource, onMount} from 'solid-js';
 import {createEffect, createSignal} from "solid-js";
 import AgGridSolid, {AgGridSolidRef} from 'ag-grid-solid';
