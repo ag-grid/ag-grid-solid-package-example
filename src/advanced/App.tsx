@@ -2,6 +2,8 @@ import {Component, createResource, onMount} from 'solid-js';
 import {createEffect, createSignal} from "solid-js";
 import AgGridSolid, {AgGridSolidRef} from 'ag-grid-solid';
 
+import "ag-grid-enterprise";
+
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 import styles from "./style.module.css"
@@ -13,6 +15,8 @@ const MyRenderer = (props: any) => {
         <span class={styles["my-renderer-value"]}>{props.value}</span>
     </span>;
 }
+
+
 
 const fetchData = async () =>
     (await fetch(`https://www.ag-grid.com/example-assets/olympic-winners.json`)).json();
