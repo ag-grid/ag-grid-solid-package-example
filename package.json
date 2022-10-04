@@ -14,6 +14,7 @@
     "vite": "3.0.9",
     "vite-plugin-solid": "2.3.0"
   },
+  "private": true,
   "dependencies": {
     "ag-grid-community": "~28.2.0",
     "ag-grid-enterprise": "~28.2.0",
