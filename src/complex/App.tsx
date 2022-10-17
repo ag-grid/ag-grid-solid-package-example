@@ -5,9 +5,9 @@ import AgGridSolid, {AgGridSolidRef} from 'ag-grid-solid';
 
 import "ag-grid-enterprise";
 
-import 'ag-grid-community/dist/styles/ag-grid.css';
-import "ag-grid-community/dist/styles/ag-theme-alpine.css";
-import "ag-grid-community/dist/styles/ag-theme-balham.css";
+import 'ag-grid-community/styles/ag-grid.css';
+import "ag-grid-community/styles/ag-theme-alpine.css";
+import "ag-grid-community/styles/ag-theme-balham.css";
 
 import {JsCellRenderer, SolidCellEditor, SolidCellRenderer, SolidDetailCellRenderer, SolidFilterComp} from './userComponents';
 

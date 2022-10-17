@@ -1,8 +1,8 @@
 import {Component, createResource, createSignal, onMount} from 'solid-js';
 import AgGridSolid, {AgGridSolidRef} from 'ag-grid-solid';
 
-import 'ag-grid-community/dist/styles/ag-grid.css';
-import "ag-grid-community/dist/styles/ag-theme-alpine.css";
+import 'ag-grid-community/styles/ag-grid.css';
+import "ag-grid-community/styles/ag-theme-alpine.css";
 import styles from "./style.module.css"
 import spinnerGif from './images/spinner.gif';
 
