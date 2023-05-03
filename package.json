@@ -1,6 +1,6 @@
 {
   "name": "ag-grid-solid-package-example",
-  "version": "29.3.3",
+  "version": "29.3.4",
   "description": "",
   "scripts": {
     "start": "vite",
@@ -16,9 +16,9 @@
   },
   "private": true,
   "dependencies": {
-    "ag-grid-community": "~29.3.3",
-    "ag-grid-enterprise": "~29.3.3",
-    "ag-grid-solid": "~29.3.3",
+    "ag-grid-community": "~29.3.4",
+    "ag-grid-enterprise": "~29.3.4",
+    "ag-grid-solid": "~29.3.4",
     "@solidjs/router": "^0.4.3",
     "solid-js": "1.5.3"
   }
