@@ -5,7 +5,7 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
-    "package": "vite build",
+    "package": "NODE_OPTIONS=--openssl-legacy-provider vite build",
     "serve": "vite preview"
   },
   "license": "MIT",
