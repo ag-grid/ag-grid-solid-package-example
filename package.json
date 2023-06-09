@@ -1,12 +1,12 @@
 {
   "name": "ag-grid-solid-package-example",
-  "version": "29.2.0",
+  "version": "30.0.0",
   "description": "",
   "scripts": {
     "start": "vite",
     "dev": "vite",
-    "package": "vite build",
-    "serve": "vite preview"
+    "package": "NODE_OPTIONS=--openssl-legacy-provider vite build",
+    "serve": "NODE_OPTIONS=--openssl-legacy-provider vite preview"
   },
   "license": "MIT",
   "devDependencies": {
@@ -16,9 +16,9 @@
   },
   "private": true,
   "dependencies": {
-    "ag-grid-community": "~29.2.0",
-    "ag-grid-enterprise": "~29.2.0",
-    "ag-grid-solid": "~29.2.0",
+    "ag-grid-community": "~30.0.0",
+    "ag-grid-enterprise": "~30.0.0",
+    "ag-grid-solid": "~30.0.0",
     "@solidjs/router": "^0.4.3",
     "solid-js": "1.5.3"
   }
