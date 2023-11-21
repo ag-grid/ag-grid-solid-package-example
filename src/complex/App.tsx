@@ -161,7 +161,6 @@ const FullApp: Component = () => {
                     rowGroupPanelShow='always'
                     rowData={getRowData()}
                     masterDetail={true}
-                    animateRows={true}
                     ref={gridRef!}
                 />
             </div>
